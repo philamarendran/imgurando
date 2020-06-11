@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "644c2b92e31e6821e4ee318278704bea",
+    "revision": "b9f015910ac732f679e2ae4fd3b67256",
     "url": "/imgurando/index.html"
   },
   {
-    "revision": "48e325f7fa6ebc76d54f",
-    "url": "/imgurando/static/css/main.3856c994.chunk.css"
+    "revision": "e457010aa88588b89c69",
+    "url": "/imgurando/static/css/main.25060826.chunk.css"
   },
   {
     "revision": "740f5c9d35eed84ac667",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/imgurando/static/js/2.be17bd1a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "48e325f7fa6ebc76d54f",
+    "revision": "e457010aa88588b89c69",
     "url": "/imgurando/static/js/main.fe926a89.chunk.js"
   },
   {
