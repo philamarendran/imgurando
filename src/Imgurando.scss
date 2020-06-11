@@ -17,14 +17,14 @@ body {
             top: 0;
             left: 0;
         transition: height cubic-bezier(0,.49,.2, 1) 1.5s;
-        transition-delay: .2s;
+        transition-delay: .5s;
         width: 100vw;
         z-index: 1;
 
         &:before {
             content: '';
             display: block;
-            height: 15vh;
+            height: 20vh;
             transition: height ease .7s;
         }
         #appTitle {
@@ -40,7 +40,7 @@ body {
             animation: liftIn ease .7s backwards;
             animation-delay: .7s;
             display: inline-block;
-            font-size: 3vmin;
+            font-size: 3vmax;
             margin: 2vw 0;
             text-align: center;            
         }
@@ -48,6 +48,7 @@ body {
             display: none;
         }
         #Controls {
+            display: block;
         }
     }
 
