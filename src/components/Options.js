@@ -11,7 +11,18 @@ export default class Options extends React.Component {
             useLongHash: false,
             imageSize: 100,
             darkMode: false
-        } 
+        }
+
+        this.sizeSliderOnchange = this.sizeSliderOnchange.bind(this);
+    }
+
+    componentDidUpdate() {
+    }
+
+    sizeSliderOnchange(event) {
+        let sliderOnChangeState = { ...this.state, imageSize: event.target.value };
+        this.setState(sliderOnChangeState);
+        this.props.getOptions(sliderOnChangeState);
     }
 
     render() {
@@ -28,11 +39,11 @@ export default class Options extends React.Component {
                             Continue without API
                         </label>
                     </span>
-                    <span id="SfwModeButton">
-                        <input id="sfwMode" type="radio" name="pickImageGetterType" value="sfwMode" className="radio"></input>
-                        <label htmlFor="sfwMode">SFW Demo Mode</label>
-                        <span className="optionMessage">Write something here</span>
-                    </span>
+                </span>
+                <span id="SfwModeButton">
+                    <input id="sfwMode" type="checkbox"></input>
+                    <label htmlFor="sfwMode">SFW Demo Mode</label>
+                    <span className="optionMessage">Write something here</span>
                 </span>
 
                 <span id="UseLongHashContainer">
@@ -50,7 +61,7 @@ export default class Options extends React.Component {
                 </span>
 
                 <span id="SizeSliderContainer">
-                    <input id="SizeSlider" type="range" min="50" max="500"></input>
+                    <input id="SizeSlider" type="range" min="50" max="500" onChange={this.sizeSliderOnchange}></input>
                 </span>
             </span>
         );

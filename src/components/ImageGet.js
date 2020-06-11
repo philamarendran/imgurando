@@ -10,15 +10,8 @@ export default class ImageGet extends React.Component {
         }
     }
 
-    async fetchImage(url) {
-
-    }
-
-    async renderFetchedImage() {
-
-    }
-
     render() {
+
         return (
             <span className="imageContainer">
                 <a
@@ -29,7 +22,7 @@ export default class ImageGet extends React.Component {
                         src={this.props.url}
                         alt=''
                     ></img>
-                </a>  
+                </a> 
             </span>
         );
     }

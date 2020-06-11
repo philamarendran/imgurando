@@ -11,16 +11,28 @@ export default class TopBar extends React.Component {
         }
     }
 
+    componentWillReceiveProps(newProps) {
+        this.setState({ ...this.state, ...newProps});
+    }
+
     handleControlsChange(e) {
         console.log(e);
     }
 
+    topBarClasses() {
+        let topBarClasses = '';
+        topBarClasses += this.state.welcomeScreen ? 'welcomeScreen ' : 'mainActivity ';
+
+        return topBarClasses;
+    }
+
     render() {
+
         return (
-            <div id="topBar">
+            <div id="TopBar" className={this.topBarClasses()}>
                 <span id="appTitle">Imgurando</span>
                 <span id="splashMessage">
-                    This is where you would see a useful message about this app.
+                    This is where you would see a useful message about this app.<br/>
                      I, unfortunately, have not written one yet. So you're seeing this.
                 </span>
                 <StatsDisplay />
@@ -29,7 +41,6 @@ export default class TopBar extends React.Component {
                 />
                 <Controls 
                 getControlsState={this.props.getControlsState}
-
                 welcomeScreen={this.state.welcomeScreen}
                 />
             </div>

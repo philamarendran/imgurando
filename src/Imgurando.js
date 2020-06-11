@@ -1,5 +1,5 @@
 import React from 'react';
-import './Imgurando.css';
+import './Imgurando.scss';
 import {CHARACTERS, CHARACTERS_LENGTH, URL_STRING, HASH_LENGTH} from './constants';
 import ImageList from './components/ImageList';
 import TopBar from './components/TopBar';
@@ -35,9 +35,7 @@ export default class Imgurando extends React.Component {
 // Callback functions to get properties from Options/Controls
 //=====================================================
   getOptions(options) {
-    this.setState({
-      options: options
-    });
+    this.setState({...this.state, options: options});
   }
   getControlsState(controlsState) {
     this.setState({...this.state, ...controlsState});
@@ -74,7 +72,6 @@ export default class Imgurando extends React.Component {
         <TopBar 
         getOptions={this.getOptions}
         getControlsState={this.getControlsState}
-
         welcomeScreen={this.state.welcomeScreen}
         />
         <ImageList 
