@@ -1,11 +1,34 @@
 @font-face { font-family: 'avenirNext'; src: url('assets/fonts/avenir_next_medium.ttf') format('truetype');}
 
-$tLiftIn: .7s;
-$tSinkOut: .5s;
-
 body {
     font-family: 'avenirNext', Arial, sans-serif;
 }
+
+$liftInDuration: 700ms;
+$sinkOutDuration: 500ms;
+
+
+// CSSTransitionGroup classes
+.liftIn {
+    opacity: 0;
+    transform: translateY(5vh);
+    &.liftIn-active {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all $liftInDuration ease;
+    }
+}
+
+.sinkOut {
+    opacity: 1;
+    transform: translateY(0);
+    &.sinkOut-active {
+        opacity: 0;
+        transform: translateY(5vh);
+        transition: all $sinkOutDuration ease;
+    }
+}
+
 
 #Imgurando {
 
@@ -16,39 +39,36 @@ body {
         position: fixed;
             top: 0;
             left: 0;
-        transition: height cubic-bezier(0,.49,.2, 1) 1.5s;
-        transition-delay: .5s;
         width: 100vw;
         z-index: 1;
 
         &:before {
             content: '';
             display: block;
-            height: 20vh;
-            transition: height ease .7s;
+            height: 30vh;
         }
         #appTitle {
-            animation: liftIn ease .7s backwards;
             display: inline-block;
-            font-size: 15vmin;
+            font-size: 10vmin;
             text-align: center;
-            transition: font-size ease .7s;
             width: 70vw;
-            margin: auto;
+            margin: auto; 
         }
         #splashMessage {
-            animation: liftIn ease .7s backwards;
-            animation-delay: .7s;
-            display: inline-block;
-            font-size: 3vmax;
-            margin: 2vw 0;
-            text-align: center;            
+            display: block;
+            font-size: 3vmin;
+            margin: 2vh 0;
+            text-align: center;
+
+            &.liftIn {
+                transition-delay: 400ms;
+            }
         }
         #Options {
             display: none;
         }
         #Controls {
-            display: block;
+            display: inline-block;
         }
     }
 
@@ -61,20 +81,24 @@ body {
 
     &.mainActivity {
         #TopBar {
-            height: 8vh;
+        transition: height cubic-bezier(0,.49,.2, 1) 1.5s;
+        transition-delay: $sinkOutDuration;
+        height: 8vh;
 
             &:before {
                 content: '';
+                transition: height ease .7s;
+                transition-delay: $sinkOutDuration;
                 height: 0;
             }
             #appTitle {
+                transition: font-size ease .7s;
+                transition-delay: $sinkOutDuration;
                 font-size: 6vh;
-            }
-            #splashMessage {
-                animation: sinkOut ease .5s forwards;
             }
             #Controls {
                 float: right;
+                position: absolute;
             }
         }
     }
@@ -83,35 +107,42 @@ body {
 #ImageList {
     width: 100%;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 8.5vh;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
 }
 
 
+$imageSize: 150px;
+$minImageMarginTotalWidth: 20px;
+
 .imageContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
-    width: 200px;
+    // max-height: 200px;
+    // max-width: 200px;
+    height: $imageSize;
+    width: $imageSize;
     margin: 10px;
 }
 
 .imageContainer img {
     margin: auto;
     display: inline-block;
-    max-height: 200px;
-    max-width: 200px;
+    max-height: $imageSize;
+    max-width: $imageSize;
     border-radius: 5px; 
     box-shadow: 3px 3px 6px -3px #000;
 
     border-top: 1px solid #DDD;
     border-left: 1px solid #DDD;
 
-    transition: ease .1s;
-    animation: materialize ease .2s;
+    // transition-property: transform, box-shadow;
+    // transition-timing-function: ease;
+    // transition-duration: .1s;
+    // animation: materialize ease .2s;
 }
 .imageContainer img:hover {
     transform: scale(1.05) ;
@@ -133,7 +164,7 @@ body {
 } */
 
 #UseApiButton {
-    transition: color 3s;
+    // transition: color 3s;
 }
 
 #UseApiButton .welcomeScreen {
@@ -143,11 +174,11 @@ body {
 
 /*========== Controls ==============*/
 /* .mainActivity #ResetButton:enabled:hover {animation: resetHover ease 1s} */
-#ResetButton.justClicked {animation: tooExcitedFullRotation cubic-bezier(.6,.06,.27,.99) 1s}
+// #ResetButton.justClicked {animation: tooExcitedFullRotation cubic-bezier(.6,.06,.27,.99) 1s}
 
 
 .loadingSpinner {
-    animation: fullRotation linear 1s infinite;
+    // animation: fullRotation linear 1s infinite;
 
     height: 20px;
     width: 20px;
