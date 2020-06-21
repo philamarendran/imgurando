@@ -22,7 +22,7 @@ export default class ImageList extends React.Component {
         let url = await this.props.newImageUrl();
         if (url) {
             imageList.push(
-                <ImageGet url={url} imageSize={this.props.imageSize}/>
+                <ImageGet url={url} listIndex={imageList.size} imageSize={this.props.imageSize}/>
             );
         }
         this.setState({list: imageList});

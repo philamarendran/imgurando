@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 export default class Controls extends React.Component {
     constructor(props) {
@@ -29,28 +30,38 @@ export default class Controls extends React.Component {
     }
 
     render() {
-        if (this.state.welcomeScreen) {
-            return (
-                <span id="Controls">
-                     <button id="BeginButton" onClick={()=>this.begin()}>Begin</button>
-                </span>
-            );
-        } else {
-            return (
-                <span id="Controls">
-                    <button id="PlayPauseButton" onClick={()=>this.playPause()}>
-                        {this.state.searchRunning ? 'Pause' : 'Play'}
-                    </button>
-                    <button 
-                    id="ResetButton"
-                    onClick={()=>this.reset()}
-                    className={this.state.isReset ? 'justClicked' : ''}
-                    disabled={this.state.searchRunning}
-                    >
-                        Reset
-                    </button>
-                </span>
-            );
-        }
+
+        let beginButton =
+            <button id="BeginButton" key="BeginButton" onClick={() => this.begin()}>Begin</button>
+        ;
+
+        let mainControls = [
+            <button id="PlayPauseButton" onClick={() => this.playPause()}>
+                {this.state.searchRunning ? 'Pause' : 'Play'}
+            </button>
+            ,
+            <button
+                id="ResetButton"
+                onClick={() => this.reset()}
+                className={this.state.isReset ? 'justClicked' : ''}
+                disabled={this.state.searchRunning}
+            >
+                Reset
+            </button>
+        ];
+
+        return (
+            <span id="Controls">
+                <CSSTransitionGroup
+                    transitionName={{ appear: 'liftIn' }}
+                    transitionAppear={true}
+                    transitionLeave={false}
+                    transitionEnter={false}
+                    transitionAppearTimeout={1200}
+                >
+                    {this.state.welcomeScreen ? beginButton : mainControls}
+                </CSSTransitionGroup>
+            </span>
+        );
     }
 }

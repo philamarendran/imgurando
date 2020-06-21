@@ -1,6 +1,7 @@
 import React from 'react';
 import {URL_STRING, SIZE} from '../constants';
 import LoadingSpinner from './LoadingSpinner';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 export default class ImageGet extends React.Component {
     constructor(props) {
@@ -31,17 +32,23 @@ export default class ImageGet extends React.Component {
         }
 
         return (
-            <span className="imageContainer" style={imageContainerStyle}>
-                <a
-                    href={this.props.url}
-                    target="_blank" rel="noopener noreferrer"
-                >
-                    <img
-                        src={this.props.url}
-                        alt=''
-                    ></img>
-                </a> 
-            </span>
+            <CSSTransitionGroup 
+            transitionName={{ appear: 'materialize'}}
+            transitionAppear={true} transitionEnter={false} transitionLeave={false}
+            transitionAppearTimeout={200}
+            >
+                <span className="imageContainer" key={'imageContainer' + this.props.listIndex} style={imageContainerStyle}>
+                    <a
+                        href={this.props.url}
+                        target="_blank" rel="noopener noreferrer"
+                    >
+                        <img
+                            src={this.props.url}
+                            alt=''
+                        ></img>
+                    </a> 
+                </span>
+            </CSSTransitionGroup>
         );
     }
         

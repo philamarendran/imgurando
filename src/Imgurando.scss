@@ -6,6 +6,9 @@ body {
 
 $liftInDuration: 700ms;
 $sinkOutDuration: 500ms;
+$enterDelay: 200ms;
+
+
 
 
 // CSSTransitionGroup classes
@@ -15,7 +18,7 @@ $sinkOutDuration: 500ms;
     &.liftIn-active {
         opacity: 1;
         transform: translateY(0);
-        transition: all $liftInDuration ease;
+        transition: all ease $liftInDuration;
     }
 }
 
@@ -25,7 +28,17 @@ $sinkOutDuration: 500ms;
     &.sinkOut-active {
         opacity: 0;
         transform: translateY(5vh);
-        transition: all $sinkOutDuration ease;
+        transition: all ease $sinkOutDuration;
+    }
+}
+
+.materialize {
+    opacity: 0;
+    transform: scale(1.5);
+    &.materialize-active {
+        transition: all ease 200ms;
+        transform: scale(1);
+        opacity: 1;
     }
 }
 
@@ -57,11 +70,11 @@ $sinkOutDuration: 500ms;
         #splashMessage {
             display: block;
             font-size: 3vmin;
-            margin: 2vh 0;
+            margin: 2vh 0 3vh;
             text-align: center;
 
             &.liftIn {
-                transition-delay: 400ms;
+                transition-delay: $enterDelay;
             }
         }
         #Options {
@@ -69,8 +82,43 @@ $sinkOutDuration: 500ms;
         }
         #Controls {
             display: inline-block;
+            
+            #BeginButton {
+                width: 100px;
+                height: 100px;
+                border-width: 1px;
+                border-radius: 13px;
+                border-color: hsla(0, 0%, 0%, .5);
+                border-style: solid;
+                background-color: rgba(255, 255, 255, 0);
+                font-family: 'avenirNext', Arial, sans-serif;
+                font-size: 100%;
+                color: hsla(0, 0%, 0%, .8);
+                transition: all ease 800ms;
+
+                &.liftIn {
+                    transition-delay: $enterDelay*2;
+                }
+
+                &:hover, &:focus {
+                    transition: all ease 150ms;
+                    border-color: hsla(152, 73%, 95%, 1);
+                    background-color: rgba(255, 255, 255, 0);
+                    color: hsl(160, 60%, 99%);
+                    box-shadow: inset 0px 0px 5px 2px hsla(152, 74%, 65%, 0.5), 0 0 5px 2px hsla(152, 74%, 65%, 0.5);
+                    text-shadow: 0 0 4px #1bb16b;
+                }
+            }
+
+            #PlayPauseButton {
+                &.liftIn {
+
+                }
+            }
         }
     }
+
+
 
     &.welcomeScreen {
         #TopBar {
@@ -92,9 +140,10 @@ $sinkOutDuration: 500ms;
                 height: 0;
             }
             #appTitle {
+                margin: 1vh 0;
                 transition: font-size ease .7s;
                 transition-delay: $sinkOutDuration;
-                font-size: 6vh;
+                font-size: 5vh;
             }
             #Controls {
                 float: right;
@@ -139,10 +188,9 @@ $minImageMarginTotalWidth: 20px;
     border-top: 1px solid #DDD;
     border-left: 1px solid #DDD;
 
-    // transition-property: transform, box-shadow;
-    // transition-timing-function: ease;
-    // transition-duration: .1s;
-    // animation: materialize ease .2s;
+    transition-property: transform, box-shadow;
+    transition-timing-function: ease;
+    transition-duration: .1s;
 }
 .imageContainer img:hover {
     transform: scale(1.05) ;
