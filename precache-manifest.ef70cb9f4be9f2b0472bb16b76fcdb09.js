@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a3b676441bf726fb029dd302b9df3d35",
+    "revision": "1306583783fe43096a4f575958391a69",
     "url": "/imgurando/index.html"
   },
   {
-    "revision": "68fe70e18776ee70e1b2",
-    "url": "/imgurando/static/css/main.251890d3.chunk.css"
+    "revision": "387ddd0482f18b4037b2",
+    "url": "/imgurando/static/css/main.5516c50a.chunk.css"
   },
   {
-    "revision": "676741fc0e5414859a3b",
-    "url": "/imgurando/static/js/2.c630d03e.chunk.js"
+    "revision": "2ac0da3e5a57173c5a2d",
+    "url": "/imgurando/static/js/2.3a838b40.chunk.js"
   },
   {
     "revision": "5356fa2f66e46e6c05e4cbe319ac7f1d",
-    "url": "/imgurando/static/js/2.c630d03e.chunk.js.LICENSE.txt"
+    "url": "/imgurando/static/js/2.3a838b40.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "68fe70e18776ee70e1b2",
-    "url": "/imgurando/static/js/main.fa955f53.chunk.js"
+    "revision": "387ddd0482f18b4037b2",
+    "url": "/imgurando/static/js/main.4dcd0dd0.chunk.js"
   },
   {
     "revision": "778840542db38aad15c7",
