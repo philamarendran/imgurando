@@ -36,12 +36,12 @@ export default class Controls extends React.Component {
         ;
 
         let mainControls = [
-            <button id="PlayPauseButton" onClick={() => this.playPause()}>
+            <button id="PlayPauseButton" key="PlayPauseButton" onClick={() => this.playPause()}>
                 {this.state.searchRunning ? 'Pause' : 'Play'}
             </button>
             ,
             <button
-                id="ResetButton"
+                id="ResetButton" key="ResetButton"
                 onClick={() => this.reset()}
                 className={this.state.isReset ? 'justClicked' : ''}
                 disabled={this.state.searchRunning}
@@ -53,11 +53,11 @@ export default class Controls extends React.Component {
         return (
             <span id="Controls">
                 <CSSTransitionGroup
-                    transitionName={{ appear: 'liftIn' }}
+                    transitionName={{ appear: 'liftIn', leave: 'sinkOut'}}
                     transitionAppear={true}
-                    transitionLeave={false}
                     transitionEnter={false}
                     transitionAppearTimeout={1200}
+                    transitionLeaveTimeout={3}
                 >
                     {this.state.welcomeScreen ? beginButton : mainControls}
                 </CSSTransitionGroup>
