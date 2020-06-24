@@ -60,6 +60,9 @@ $enterDelay: 200ms;
             display: block;
             height: 30vh;
         }
+        #StatsDisplay {
+            display: none;
+        }
         #appTitle {
             display: inline-block;
             font-size: 10vmin;
@@ -97,7 +100,7 @@ $enterDelay: 200ms;
                 transition: all ease 800ms;
 
                 &.liftIn {
-                    transition-delay: $enterDelay*2;
+                    transition-delay: $enterDelay*4;
                 }
 
                 &:hover, &:focus {
@@ -131,7 +134,10 @@ $enterDelay: 200ms;
         #TopBar {
         transition: height cubic-bezier(0,.49,.2, 1) 1.5s;
         transition-delay: $sinkOutDuration;
-        height: 8vh;
+        height: 6.5vh;
+        padding-top: 1vh;
+        text-align: left;
+        vertical-align: middle;
 
             &:before {
                 content: '';
@@ -139,15 +145,34 @@ $enterDelay: 200ms;
                 transition-delay: $sinkOutDuration;
                 height: 0;
             }
+            #StatsDisplay {
+                display: inline-block;
+                position: absolute;
+                width: 98vw;
+                padding-left: 2vw;
+                text-align: left;
+                font-size: 2vh;
+            }
             #appTitle {
-                margin: 1vh 0;
+                //margin: 1vh 0;
+                position: absolute;
+                width: 100vw;
                 transition: font-size ease .7s;
                 transition-delay: $sinkOutDuration;
-                font-size: 5vh;
+                font-size: 4vh;
             }
             #Controls {
-                float: right;
+                display: inline-block;
                 position: absolute;
+                text-align: right;
+                width: 98vw;
+                padding-right: 2vw;
+            }
+
+            button {
+                height: 5vh;
+                width: 5vh;
+                //margin: 1vh;
             }
         }
     }

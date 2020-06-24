@@ -1,4 +1,5 @@
 import React from 'react';
+import CSSTransitionGroup from 'react-transition-group';
 import './Imgurando.scss';
 import {CHARACTERS, CHARACTERS_LENGTH, URL_STRING, HASH_LENGTH} from './constants';
 import ImageList from './components/ImageList';

@@ -56,7 +56,7 @@ export default class Controls extends React.Component {
                     transitionName={{ appear: 'liftIn', leave: 'sinkOut'}}
                     transitionAppear={true}
                     transitionEnter={false}
-                    transitionAppearTimeout={1200}
+                    transitionAppearTimeout={1500}
                     transitionLeaveTimeout={3}
                 >
                     {this.state.welcomeScreen ? beginButton : mainControls}
