@@ -3,10 +3,10 @@
 body {
     font-family: 'avenirNext', Arial, sans-serif;
 }
-
-$liftInDuration: 700ms;
-$sinkOutDuration: 500ms;
-$enterDelay: 200ms;
+$modifier: 1; //for testing
+$liftInDuration: 700ms * $modifier;
+$sinkOutDuration: 500ms * $modifier;
+$enterDelay: 200ms * $modifier;
 
 
 
@@ -144,6 +144,9 @@ $enterDelay: 200ms;
                 transition: height ease .7s;
                 transition-delay: $sinkOutDuration;
                 height: 0;
+            }
+            #splashMessage {
+                padding-top: 3vmin;
             }
             #StatsDisplay {
                 display: inline-block;
